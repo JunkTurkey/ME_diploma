@@ -1,11 +1,9 @@
-%SOURCE=[1,2,3,4,5,6,7,8,9,10,11,12;1,2,3,4,5,6,7,8,9,10,11,12;1,2,3,4,5,6,7,8,9,10,11,12;1,2,3,4,5,6,7,8,9,10,11,12;1,2,3,4,5,6,7,8,9,10,11,12;1,2,3,4,5,6,7,8,9,10,11,12;1,2,3,4,5,6,7,8,9,10,11,12;1,2,3,4,5,6,7,8,9,10,11,12;]
 SOURCE=meshgrid(1:10,1:10)
-%SOURCE=[1,1,1,1,1,1,1,1,1,1;2,2,2,2,2,2,2,2,2,2;3,3,3,3,3,3,3,3,3,3;4,4,4,4,4,4,4,4,4,4;5,5,5,5,5,5,5,5,5,5;6,6,6,6,6,6,6,6,6,6;7,7,7,7,7,7,7,7,7,7;8,8,8,8,8,8,8,8,8,8;9,9,9,9,9,9,9,9,9,9;10,10,10,10,10,10,10,10,10,10]
 mysize=size(SOURCE)
 ly=mysize(1)
 lx=mysize(2)
 maximum=sqrt((lx/2).^2+(ly/2).^2);
-        %vi4islyaem ro-theta 4etverti
+        %ro-theta quarters calculation
         for i=1:(lx/2)
         for j=1:(ly/2)
             x=i
@@ -38,7 +36,7 @@ maximum=sqrt((lx/2).^2+(ly/2).^2);
             IVtheta(j,i)=atan2(y,x)
         end
         end
-        %perevora4ivaem 4etverti
+        %turn around quarters 
         tempr=IIIro
         tempt=IIItheta
         for i=1:lx/2
@@ -83,7 +81,7 @@ maximum=sqrt((lx/2).^2+(ly/2).^2);
         end
         end
         clear Iro IIro IIIro IVro Itheta IVtheta IIItheta IItheta
-        %vi4islyaem polynomials
+        %polynomials calculation
         for i=1:(lx)
         for j=1:(ly)
             %prep
@@ -155,7 +153,7 @@ maximum=sqrt((lx/2).^2+(ly/2).^2);
         clear tempmatp tempmats
         %changing coeffs - decoment and put number instead of X to change coef
         
-        C(2,1)=0
+        %C(X,1)=0
         
         %forming result matrix
         for i=1:(lx)
@@ -172,5 +170,5 @@ maximum=sqrt((lx/2).^2+(ly/2).^2);
                 +C(36,1)*P35(j,i)+C(37,1)*P36(j,i)
         end
         end
-        %surf(SOURCE)
+        
         surf(RESULT)
